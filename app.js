@@ -53,12 +53,16 @@ app.get("/video/:id/:format",async (req,res)=>{
     const fileName = `${title}.${format === "audio" ? "mp3" : "mp4"}`;
     const contentType = format === "audio" ? "audio/mpeg" : "video/mp4"; 
 
-    res.setHeader(
+    await new Promise((resolve)=>{
+        res.setHeader(
         "Content-Type", contentType
-    )
-    res.setHeader(
+        )
+        res.setHeader(
         "Content-Disposition", `attachment; filename=${fileName}`
-    )
+        )
+
+        setTimeout(resolve,800)
+    })
 
 
     const stream = ytdl(id,{
