@@ -70,5 +70,5 @@ app.post("/video/:id/:format",async (req,res)=>{
 })
 
 app.listen(3000,()=>{
-    console.log("Server started")
+    console.log("Using attachment")
 })
