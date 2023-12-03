@@ -58,11 +58,7 @@ app.get("/video/:id/:format",async (req,res)=>{
             "Content-Type", contentType
         )
         res.setHeader(
-            "Content-Disposition", `attachment; filename=${fileName}`
-        )
-
-        res.setHeader(
-            "Content-Length", String(length)
+            "Content-Disposition", `attachment;filename=${fileName}`
         )
 
         setTimeout(resolve,800)
