@@ -43,7 +43,7 @@ app.get("/video",(req,res)=>{
     stream.pipe(res)
 })
  
-app.post("/video/:id/:format",async (req,res)=>{
+app.get("/video/:id/:format",async (req,res)=>{
     console.log(req.params)
     const {id, format } = req.params;
 
