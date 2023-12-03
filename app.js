@@ -55,10 +55,14 @@ app.get("/video/:id/:format",async (req,res)=>{
 
     await new Promise((resolve)=>{
         res.setHeader(
-        "Content-Type", contentType
+            "Content-Type", contentType
         )
         res.setHeader(
-        "Content-Disposition", `attachment; filename=${fileName}`
+            "Content-Disposition", `attachment; filename=${fileName}`
+        )
+
+        res.setHeader(
+            "Content-Length", String(length)
         )
 
         setTimeout(resolve,800)
