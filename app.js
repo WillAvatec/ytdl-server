@@ -36,6 +36,7 @@ app.get("/video",(req,res)=>{
         bar.tick(chunk.length)
     })
     .on("end",()=>{
+        console.log("finished downloading video")
         res.end()
     })
     
