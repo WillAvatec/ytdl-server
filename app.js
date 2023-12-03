@@ -4,10 +4,13 @@ const fs = require('fs');
 const path = require("path");
 const ytdl = require("ytdl-core");
 const ProgressBar = require("progress")
+const morgan = require("morgan")
 
 const app = express()
 
 const URL = "https://www.youtube.com/watch?v=1uPBzLkDYLI"
+
+app.use(morgan())
 
 app.get("/",(req,res)=>{
     res.sendFile(path.join(__dirname,"index.html"))
@@ -31,9 +34,6 @@ app.get("/video",(req,res)=>{
     })
     .on("data",chunk=>{
         bar.tick(chunk.length)
-    })
-    .on("progress",(length,totalDownloaded,total)=>{
-        console.log({length,totalDownloaded,total})
     })
     .on("end",()=>{
         res.end()
