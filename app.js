@@ -62,7 +62,7 @@ app.get("/video/:id/:format",async (req,res)=>{
 
 
     const stream = ytdl(id,{
-        quality:"highestvideo",
+        quality:"highest",
         filter: format === "audio" ? "audioonly" : "audioandvideo"
     })
 
