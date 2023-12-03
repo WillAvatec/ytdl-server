@@ -16,12 +16,14 @@ app.get("/",(req,res)=>{
 
 let bar;
 app.get("/video",(req,res)=>{
+    console.log("Request on /video")
 
     const stream = ytdl(URL, {
         filter:"audioandvideo",
         quality:"highestvideo",
     })
     .on("response",(res)=>{
+        console.log("Response of video")
         bar = new ProgressBar('downloading [:bar] :percent :etas', { 
             complete : String.fromCharCode(0x2588), 
             total    : parseInt(res.headers['content-length'], 10) 
