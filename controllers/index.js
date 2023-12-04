@@ -78,3 +78,7 @@ exports.barTestController = async function (req, res) {
 
   stream.pipe(res);
 };
+
+exports.cron = function (req,res) {
+  res.send("hola")
+}
