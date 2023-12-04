@@ -19,7 +19,7 @@ app.listen(process.env.PORT, () => {
 
   // Mantain server instance
   let counter = 0;
-  cron.schedule("*/10 * * * * *", () => {
+  cron.schedule("*/14 * * * *", () => {
     counter++;
     // Call this api point
     fetch("https://ydtl-media-server.onrender.com/cron")
