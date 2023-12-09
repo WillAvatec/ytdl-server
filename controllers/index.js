@@ -7,7 +7,7 @@ exports.videoController = async function (req, res) {
 
   // Get info of the video
   const info = await ytdl.getBasicInfo(id);
-  const fileName = `${info.videoDetails.title}.mp4`;
+  const fileName = `${encodeURIComponent(info.videoDetails.title)}.mp4`;
   const length = info.formats[0].contentLength;
 
   // Set Headers
@@ -32,7 +32,7 @@ exports.audioController = async function (req, res) {
 
   // Get info of the video
   const info = await ytdl.getBasicInfo(id);
-  const fileName = `${info.videoDetails.title}.mp3`;
+  const fileName = `${encodeURIComponent(info.videoDetails.title)}.mp3`;
   const length = info.formats[0].contentLength;
 
   // Set Headers
@@ -79,6 +79,6 @@ exports.barTestController = async function (req, res) {
   stream.pipe(res);
 };
 
-exports.cron = function (req,res) {
-  res.send("hola")
-}
+exports.cron = function (req, res) {
+  res.send("hola");
+};
