@@ -44,7 +44,7 @@ exports.audioController = async function (req, res) {
   }
 
   const stream = ytdl(id, {
-    filter: "audio",
+    filter: "audioonly",
     quality: "highestaudio",
   });
 
