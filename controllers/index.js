@@ -23,6 +23,9 @@ exports.videoController = async function (req, res) {
     quality: "highestvideo",
   });
 
+  //Try to catch error 
+  stream.on("error", (err)=> { console.log(err)})
+
   stream.pipe(res);
 };
 
